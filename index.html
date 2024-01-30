@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixabay Image Search</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+        <h1>Pixabay Image Search</h1>
+        </header>
+        <div class="search-container">
+            <!-- Lägg till sökterm-input, färg-dropdown och sökknapp här -->
+        <input type="text" id="searchInput" placeholder="Search for photos">
+        <select id="colorSelect">
+            <option value="">Any color</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <!-- Lägg till fler färger om önskas -->
+            </select>
+            <button onclick="searchImages()">Submit</button>
+
+        <!-- <div id="imageContainer"></div> -->
+        </div>       
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
