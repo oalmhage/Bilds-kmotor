@@ -7,19 +7,22 @@ function searchImages() {
     let colorFilter = document.getElementById('colorSelect').value;
     const startIndex = (currentPage - 1) * imagesPerPage;
 
-    let apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(searchTerm)}&per_page=${imagesPerPage}&page=${currentPage}`;
+    let api = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(searchTerm)}&per_page=${imagesPerPage}&page=${currentPage}`;
 
     // Lägg till färgfilter om det är valt
     if (colorFilter) {
-        apiUrl += `&colors=${colorFilter}`;
+        api += `&colors=${colorFilter}`;
     }
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            displayImages(data.hits);
-            displayPagination(data.totalHits);
-        });
+    // Anropa fetchData-funktionen här
+    fetchData(api);
+}
+
+async function fetchData(api) {
+
+    let response = await fetch(api);
+    let data = await response.json();
+    displayImages(data.hits);
 }
 
 function displayImages(images) {
