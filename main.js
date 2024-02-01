@@ -1,6 +1,6 @@
 let apiKey = '42149832-f9141c5344ccf49924bc7a124';
 let currentPage = 1;
-let imagesPerPage = 16;
+let imagesPerPage = 15;
 
 function searchImages() {
     let searchTerm = document.getElementById('searchInput').value;
@@ -29,8 +29,8 @@ function displayImages(images) {
     let container = document.getElementById('imageContainer');
 
     // Ta bort befintliga bilder (om det finns några)
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+    while (container.imgElement) {
+        container.replaceChildren();
     }
 
     // Skapa och lägg till nya bild-element

@@ -18,20 +18,23 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 }
+
 h1 {
     color: #333;
 }
 
 .search-container {
     display: grid;
-    gap:10px;
+    gap: 10px;
     grid-template-columns: 4fr 1fr 1fr;
     max-width: 80%;
     margin: auto;
 }
+
 input {
     padding: 10px;
 }
+
 button {
     padding: 10px;
     background-color: #4caf50;
@@ -39,6 +42,7 @@ button {
     border: none;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #45a049;
 }
@@ -47,17 +51,23 @@ button:hover {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    gap: 10px;
     display: grid;
-    margin-top: 20px;
-    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin-top: 50px;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    
+
 }
+
 #pagination {
     margin-top: 20px;
 }
