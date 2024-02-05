@@ -2,7 +2,7 @@ let apiKey = '42149832-f9141c5344ccf49924bc7a124';
 let currentPage = 1;
 let imagesPerPage = 15;
 
-// Lägg till denna kod för att hantera knappklick för Nästa och Föregående
+//hantera knappklick för Nästa och Föregående
 document.getElementById('prevButton').addEventListener('click', function() {
     if (currentPage > 1) {
         currentPage--;
@@ -18,11 +18,10 @@ document.getElementById('nextButton').addEventListener('click', function() {
 function searchImages() {
     let searchTerm = document.getElementById('searchInput').value;
     let colorFilter = document.getElementById('colorSelect').value;
-    const startIndex = (currentPage - 1) * imagesPerPage;
 
     let api = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(searchTerm)}&per_page=${imagesPerPage}&page=${currentPage}`;
 
-    // Lägg till färgfilter om det är valt
+    // Lägg till färgfilter i api länken om en färg är vald
     if (colorFilter) {
         api += `&colors=${colorFilter}`;
     }
@@ -43,8 +42,6 @@ function displayImages(images) {
     // Ta bort befintliga bilder (om det finns några)
     container.replaceChildren();
 
-    // Skapa och lägg till nya bild-element
-    // Skapa och lägg till nya bild-element
     images.forEach(image => {
         // Skapa bild-container
         let imageContainer = document.createElement('div');
@@ -82,12 +79,12 @@ function displayImages(images) {
 
     if (images.length > imagesPerPage || currentPage > 1) {
         prevButton.style.display = 'inline-block';
-        prevButton.style.display = 'center'
+        
     } else {
         prevButton.style.display = 'none';
         
     }
-
+     //visar endast "next"
     if (images.length === imagesPerPage) {
         nextButton.style.display = 'inline-block';
     } else {
