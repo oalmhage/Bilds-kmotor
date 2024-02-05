@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <div class="container">
         <header>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
             <h1>Pixabay Image Search</h1>
         </header>
         <div class="search-container">
@@ -25,14 +27,14 @@
                 <option value="green">Green</option>
                 <!-- Lägg till fler färger om önskas -->
             </select>
-            <button onclick="searchImages()">Submit</button>
+            <button onclick="searchImages()">Search</button>
 
         </div>
 
         <div id="imageContainer"></div>
-        <div id="pagination"></div>
-        <button id="prevButton">Föregående</button>
-        <button id="nextButton">Nästa</button>
+    <div id="pagination">
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
     </div>
 
 </body>

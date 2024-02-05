@@ -25,7 +25,7 @@ header {
 
 h1 {
     color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Cinzel', serif;
     text-align: center;
 }
 
@@ -38,30 +38,23 @@ h1 {
 
 }
 
-#colorSelect{
-
-    border-radius: 5px;
-    padding: 5px;
-}
-
-input {
+input, select {
     padding: 10px;
     border-radius: 5px;
-
+    border: 2px solid #000000;
 }
 
 button {
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #746543;
     color: #fff;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #463d26;
 }
 
 #imageContainer {
@@ -97,17 +90,20 @@ img {
 
 }
 
-#pagination{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-}
-
-#nextButton, #prevButton {
-    display:none;
-    justify-content: center;   
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrera på korsaxeln */
     margin-top: 20px;
-    border-radius: 5px;
-
+    gap: 10px;
+    margin-bottom: 20px;
 }
-
+ 
+#nextButton, #prevButton {
+    display: none;
+    padding: 10px;
+    background-color: #746543;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
