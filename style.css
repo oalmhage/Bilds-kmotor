@@ -43,7 +43,7 @@ h1 {
 
 button {
     padding: 10px;
-    background-color: #746543;
+    background-color: rgba(70, 61, 37, 0.562);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -52,7 +52,7 @@ button {
 }
 
 button:hover {
-    background-color: #463d26;
+    background-color: hsla(44, 31%, 21%, 0.3); /* Använd rgba med genomskinlighet 0.7 för hover-effekten */
 }
 
 #imageContainer {
@@ -97,9 +97,12 @@ img {
 #nextButton, #prevButton {
     display: none;
     padding: 10px;
-    background-color: #746543;
+    background-color:  rgba(70, 61, 37, 0.562);
     color: #fff;
     border: none;
     border-radius: 5px;
     font-family: 'Cinzel', serif;
+}
+#nextButton:hover, #prevButton:hover {
+    background-color:  hsla(44, 31%, 21%, 0.3); /* Använd rgba med genomskinlighet 0.7 för hover-effekten */
 }
