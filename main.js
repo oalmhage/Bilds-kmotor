@@ -43,33 +43,33 @@ function displayImages(images) {
 
     images.forEach(image => {
         // Skapar bild-container
-        let imageContainer = document.createElement('div');
-        imageContainer.className = 'image-item';
-    
+        let imageItem = document.createElement('div');
+        imageItem.className = 'image-item';
+        
         // Skapar bild-element
         let imgElement = document.createElement('img');
         imgElement.src = image.webformatURL;
-    
+        
         // Lägger till bild-texter direkt under bild-element
         let detailsContainer = document.createElement('div');
         detailsContainer.className = 'image-details';
-    
+        
         let tagsElement = document.createElement('p');
         tagsElement.textContent = image.tags;
-    
+        
         let photographerElement = document.createElement('p');
         photographerElement.textContent = 'Taken by: ' + image.user;
-    
+        
         //taggar och fotograf under bild-container
         detailsContainer.append(tagsElement);
         detailsContainer.append(photographerElement);
-    
+        
         //bild-element och texter i bild-container
-        imageContainer.append(imgElement);
-        imageContainer.append(detailsContainer);
-    
+        imageItem.append(imgElement);
+        imageItem.append(detailsContainer);
+        
         // Lägger till bild-container i imageContainer som finns i HTML
-        container.append(imageContainer);
+        container.append(imageItem);
     });
 
     // Visa eller dölj knapparna beroende på antalet bilder och den aktuella sidan
