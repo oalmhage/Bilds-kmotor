@@ -1,6 +1,6 @@
 let apiKey = '42149832-f9141c5344ccf49924bc7a124';
 let currentPage = 1;
-let imagesPerPage = 15;
+let imagesPerPage = 10;
 
 // Hantera knappklick för Nästa och Föregående
 document.getElementById('prevButton').addEventListener('click', function() {
