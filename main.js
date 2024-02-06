@@ -18,6 +18,14 @@ function searchImages() {
     }
  
     fetchData(api);
+
+        // Spara föregående sökvärden
+        if (searchTerm !== "") {
+            previousSearchTerm = searchTerm;
+        }
+        if (colorFilter !== "") {
+            previousColorFilter = colorFilter;
+        }
 }
 
 document.getElementById('searchButton').addEventListener('click', function() {
@@ -36,13 +44,14 @@ async function fetchData(api) {
 document.getElementById('prevButton').addEventListener('click', function() {
     if (currentPage > 1) {
         currentPage--;
-        searchImages();
+        // Använd föregående sökterm och färg när du klickar på "prev"
+        fetchData(`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(previousSearchTerm)}&per_page=${imagesPerPage}&page=${currentPage}&colors=${previousColorFilter}`);
     }
 });
  
 document.getElementById('nextButton').addEventListener('click', function() {
     currentPage++;
-    fetchData (`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(searchTerm)}&per_page=${imagesPerPage}&page=${currentPage}`)
+    fetchData(`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(previousSearchTerm)}&per_page=${imagesPerPage}&page=${currentPage}&colors=${previousColorFilter}`);
 });
  
 function displayImages(images) {
