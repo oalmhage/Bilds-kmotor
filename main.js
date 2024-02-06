@@ -38,7 +38,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
 async function fetchData(api) {
     let response = await fetch(api);
     let data = await response.json();
-    displayImages(data.hits);
+    displayImages(data);
 }
 
 document.getElementById('prevButton').addEventListener('click', function() {
@@ -54,13 +54,13 @@ document.getElementById('nextButton').addEventListener('click', function() {
     fetchData(`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(previousSearchTerm)}&per_page=${imagesPerPage}&page=${currentPage}&colors=${previousColorFilter}`);
 });
  
-function displayImages(images) {
+function displayImages(data) {
     let container = document.getElementById('imageContainer');
  
     // Ta bort befintliga bilder om det finns några
     container.replaceChildren();
  
-    images.forEach(image => {
+    data.hits.forEach(image => {
         // Skapar bild-container
         let imageContainer = document.createElement('div');
         imageContainer.className = 'image-item';
@@ -90,19 +90,21 @@ function displayImages(images) {
         // Lägger till bild-container i imageContainer som finns i HTML
         container.append(imageContainer);
     });
- 
+
     // Visa eller dölj knapparna beroende på antalet bilder och den aktuella sidan
     let prevButton = document.getElementById('prevButton');
     let nextButton = document.getElementById('nextButton');
  
-    if (images.length > imagesPerPage || currentPage > 1) {
+    if (data.hits.length > imagesPerPage || currentPage > 1) {
         prevButton.style.display = 'inline-block';
     } else {
         prevButton.style.display = 'none';
     }
  
-    // Visa endast "next"
-    if (images.length === imagesPerPage) {
+    let totalPages = Math.ceil(data.totalHits / imagesPerPage);
+
+    // Kolla om det finns fler sidor att hämta
+    if (totalPages > currentPage) {
         nextButton.style.display = 'inline-block';
     } else {
         nextButton.style.display = 'none';
