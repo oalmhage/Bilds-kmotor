@@ -1,6 +1,6 @@
 let apiKey = '42149832-f9141c5344ccf49924bc7a124';
 let currentPage = 1;
-let imagesPerPage = 10;
+let imagesPerPage = 12; //Godkänt av Jakob
 let searchTerm = "";
 let colorFilter = "";
 let previousSearchTerm = "";
