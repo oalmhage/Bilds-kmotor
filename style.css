@@ -6,7 +6,8 @@
 
 body {
     background-image: url('image.jpg');
-    background-size: cover; /* Sätt bakgrundsbilden för att täcka hela fönstret */
+    background-size: cover;
+    /* Sätt bakgrundsbilden för att täcka hela fönstret */
     background-position: center;
 }
 
@@ -19,7 +20,7 @@ header {
 
 h1 {
     color: #ffffff;
-    text-shadow:1px 2px 4px #3f3726;
+    text-shadow: 1px 2px 4px #3f3726;
     font-family: 'Cinzel', serif;
     text-align: center;
 }
@@ -30,14 +31,15 @@ h1 {
     grid-template-columns: 4fr 1fr 1fr;
     max-width: 80%;
     margin: auto;
-    outline:none;
+    outline: none;
 }
 
-#searchInput, #colorSelect {
+#searchInput,
+#colorSelect {
     padding: 10px;
     border-radius: 5px;
     outline: none;
-    border:none;
+    border: none;
     font-family: 'Cinzel', serif;
 }
 
@@ -52,7 +54,8 @@ button {
 }
 
 button:hover {
-    background-color: hsla(44, 31%, 21%, 0.3); /* Använd rgba med genomskinlighet 0.7 för hover-effekten */
+    background-color: hsla(44, 31%, 21%, 0.3);
+    /* Använd rgba med genomskinlighet 0.7 för hover-effekten */
 }
 
 #imageContainer {
@@ -62,7 +65,7 @@ button:hover {
     display: grid;
     gap: 10px;
     margin-top: 50px;
-    grid-template-columns: repeat(5, 1fr);  
+    grid-template-columns: repeat(5, 1fr);
 }
 
 img {
@@ -85,24 +88,59 @@ img {
 
 }
 
+#image-item{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #pagination {
     display: flex;
     justify-content: center;
-    align-items: center; /* Centrera på korsaxeln */
+    align-items: center;
+    /* Centrera på korsaxeln */
     margin-top: 20px;
     gap: 10px;
     margin-bottom: 20px;
 }
- 
-#nextButton, #prevButton {
+
+#nextButton,
+#prevButton {
     display: none;
     padding: 10px;
-    background-color:  rgba(70, 61, 37, 0.562);
+    background-color: rgba(70, 61, 37, 0.562);
     color: #fff;
     border: none;
     border-radius: 5px;
     font-family: 'Cinzel', serif;
 }
-#nextButton:hover, #prevButton:hover {
-    background-color:  hsla(44, 31%, 21%, 0.3); /* Använd rgba med genomskinlighet 0.7 för hover-effekten */
+
+#nextButton:hover,
+#prevButton:hover {
+    background-color: hsla(44, 31%, 21%, 0.3);
+    /* Använd rgba med genomskinlighet 0.7 för hover-effekten */
+}
+
+@media (max-width: 1300px) {
+    #imageContainer {
+        max-width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+img {
+    width: 100%;
+}
+
+@media (max-width: 1046px) {
+
+    #imageContainer {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+@media (max-width: 600px) {
+    #imageContainer {
+        grid-template-columns: 1fr;
+    }
 }
