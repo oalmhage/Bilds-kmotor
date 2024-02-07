@@ -5,33 +5,35 @@ let searchTerm = "";
 let colorFilter = "";
 let previousSearchTerm = "";
 let previousColorFilter = "";
- 
+
 function searchImages() {
     let searchTerm = document.getElementById('searchInput').value;
     let colorFilter = document.getElementById('colorSelect').value;
- 
-    let api = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(searchTerm)}&per_page=${imagesPerPage}&page=${currentPage}`;
- 
-    // Lägger till färgfilter i API-länken om en färg är vald
+
+    let api = `https://pixabay.com/api/?key=${apiKey}&` +
+        `q=${encodeURIComponent(searchTerm)}&` +
+        `per_page=${imagesPerPage}&` +
+        `page=${currentPage}`;
+
     if (colorFilter) {
         api += `&colors=${colorFilter}`;
     }
- 
+
     fetchData(api);
 
-        // Spara föregående sökvärden
-        if (searchTerm !== "") {
-            previousSearchTerm = searchTerm;
-        }
-        if (colorFilter !== "") {
-            previousColorFilter = colorFilter;
-        }
+    // Sparar föregående sökvärden
+    if (searchTerm !== "") {
+        previousSearchTerm = searchTerm;
+    }
+    if (colorFilter !== "") {
+        previousColorFilter = colorFilter;
+    }
 }
 
-document.getElementById('searchButton').addEventListener('click', function() {
+document.getElementById('searchButton').addEventListener('click', function () {
     latestSearch = searchTerm.value;
     latestColor = colorFilter.value;
-
+    currentPage = 1;
     searchImages();
 });
 
@@ -41,69 +43,76 @@ async function fetchData(api) {
     displayImages(data);
 }
 
-document.getElementById('prevButton').addEventListener('click', function() {
+document.getElementById('prevButton').addEventListener('click', function () {
     if (currentPage > 1) {
         currentPage--;
-        // Använd föregående sökterm och färg när du klickar på "prev"
-        fetchData(`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(previousSearchTerm)}&per_page=${imagesPerPage}&page=${currentPage}&colors=${previousColorFilter}`);
+
+        // Använd föregående sökterm och färg när du klickar på "prev" eller "next"
+        let api = `https://pixabay.com/api/?key=${apiKey}&` +
+            `q=${encodeURIComponent(previousSearchTerm)}&` +
+            `per_page=${imagesPerPage}&` +
+            `page=${currentPage}&` +
+            `colors=${previousColorFilter}`;
+
+        fetchData(api);
+
     }
 });
- 
-document.getElementById('nextButton').addEventListener('click', function() {
+
+document.getElementById('nextButton').addEventListener('click', function () {
     currentPage++;
-    fetchData(`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(previousSearchTerm)}&per_page=${imagesPerPage}&page=${currentPage}&colors=${previousColorFilter}`);
+
+    let api = `https://pixabay.com/api/?key=${apiKey}&` +
+          `q=${encodeURIComponent(previousSearchTerm)}&` +
+          `per_page=${imagesPerPage}&` +
+          `page=${currentPage}&` +
+          `colors=${previousColorFilter}`;
+
+fetchData(api);
+
 });
- 
+
 function displayImages(data) {
     let container = document.getElementById('imageContainer');
- 
-    // Ta bort befintliga bilder om det finns några
+
     container.replaceChildren();
- 
+
     data.hits.forEach(image => {
-        // Skapar bild-container
+
         let imageContainer = document.createElement('div');
         imageContainer.className = 'image-item';
-   
-        // Skapar bild-element
+
         let imgElement = document.createElement('img');
         imgElement.src = image.webformatURL;
-   
-        // Lägger till bild-texter direkt under bild-element
+
         let detailsContainer = document.createElement('div');
         detailsContainer.className = 'image-details';
-   
+
         let tagsElement = document.createElement('p');
         tagsElement.textContent = image.tags;
-   
+
         let photographerElement = document.createElement('p');
         photographerElement.textContent = 'Taken by: ' + image.user;
-   
-        //taggar och fotograf under bild-container
+
         detailsContainer.append(tagsElement);
         detailsContainer.append(photographerElement);
-   
-        //bild-element och texter i bild-container
         imageContainer.append(imgElement);
         imageContainer.append(detailsContainer);
-   
-        // Lägger till bild-container i imageContainer som finns i HTML
         container.append(imageContainer);
+
     });
 
-    // Visa eller dölj knapparna beroende på antalet bilder och den aktuella sidan
     let prevButton = document.getElementById('prevButton');
     let nextButton = document.getElementById('nextButton');
- 
+
     if (data.hits.length > imagesPerPage || currentPage > 1) {
         prevButton.style.display = 'inline-block';
     } else {
         prevButton.style.display = 'none';
     }
- 
+
     let totalPages = Math.ceil(data.totalHits / imagesPerPage);
 
-    // Kolla om det finns fler sidor att hämta
     if (totalPages > currentPage) {
         nextButton.style.display = 'inline-block';
     } else {

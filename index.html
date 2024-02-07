@@ -14,15 +14,22 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <meta name="description" content="A website made for searching images with the Pixabay API">
+    <meta name="keywords" content="html, css, JavaScript, API, assignment, Pixabay, image search">
+    <meta name="author" content="Oskar Almhage, Veronica Steen">
 </head>
 
 <body>
+    <main>
         <header>
             <h1>Pixabay Image Search</h1>
         </header>
         <div class="search-container">
-            <!-- Lägg till sökterm-input, färg-dropdown och sökknapp här -->
+
             <input type="text" id="searchInput" placeholder="Search for photos">
             <select id="colorSelect">
                 <option value="">Any color</option>
@@ -33,20 +40,19 @@
                 <option value="yellow">Yellow</option>
                 <option value="orange">Orange</option>
                 <option value="pink">Pink</option>
-                <option value="purple">Purple</option>
                 <option value="brown">Brown</option>
-                <!-- Lägg till fler färger om önskas -->
+
             </select>
             <button id="searchButton">Search</button>
 
         </div>
 
         <div id="imageContainer"></div>
-    <div id="pagination">
-        <button id="prevButton">Previous</button>
-        <button id="nextButton">Next</button>
-    </div>
-
+        <div id="pagination">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
+    </main>
 </body>
 
 </html>
