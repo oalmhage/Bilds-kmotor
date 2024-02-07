@@ -6,6 +6,13 @@ let colorFilter = "";
 let previousSearchTerm = "";
 let previousColorFilter = "";
 
+document.getElementById('searchButton').addEventListener('click', function () {
+    latestSearch = searchTerm.value;
+    latestColor = colorFilter.value;
+    currentPage = 1;
+    searchImages();
+});
+
 function searchImages() {
     let searchTerm = document.getElementById('searchInput').value;
     let colorFilter = document.getElementById('colorSelect').value;
@@ -29,13 +36,6 @@ function searchImages() {
         previousColorFilter = colorFilter;
     }
 }
-
-document.getElementById('searchButton').addEventListener('click', function () {
-    latestSearch = searchTerm.value;
-    latestColor = colorFilter.value;
-    currentPage = 1;
-    searchImages();
-});
 
 async function fetchData(api) {
     let response = await fetch(api);
