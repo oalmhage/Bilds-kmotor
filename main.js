@@ -7,8 +7,8 @@ let previousSearchTerm = "";
 let previousColorFilter = "";
 
 document.getElementById('searchButton').addEventListener('click', function () {
-    latestSearch = searchTerm.value;
-    latestColor = colorFilter.value;
+    // latestSearch = searchTerm.value;
+    // latestColor = colorFilter.value;
     currentPage = 1;
     searchImages();
 });
