@@ -7,8 +7,10 @@ let previousSearchTerm = "";
 let previousColorFilter = "";
 
 document.getElementById('searchButton').addEventListener('click', function () {
+
     // latestSearch = searchTerm.value;
     // latestColor = colorFilter.value;
+
     currentPage = 1;
     searchImages();
 });
@@ -26,8 +28,6 @@ function searchImages() {
         api += `&colors=${colorFilter}`;
     }
 
-    fetchData(api);
-
     // Sparar föregående sökvärden
     if (searchTerm !== "") {
         previousSearchTerm = searchTerm;
@@ -35,6 +35,9 @@ function searchImages() {
     if (colorFilter !== "") {
         previousColorFilter = colorFilter;
     }
+
+    fetchData(api);
+
 }
 
 async function fetchData(api) {
@@ -63,12 +66,12 @@ document.getElementById('nextButton').addEventListener('click', function () {
     currentPage++;
 
     let api = `https://pixabay.com/api/?key=${apiKey}&` +
-          `q=${encodeURIComponent(previousSearchTerm)}&` +
-          `per_page=${imagesPerPage}&` +
-          `page=${currentPage}&` +
-          `colors=${previousColorFilter}`;
+        `q=${encodeURIComponent(previousSearchTerm)}&` +
+        `per_page=${imagesPerPage}&` +
+        `page=${currentPage}&` +
+        `colors=${previousColorFilter}`;
 
-fetchData(api);
+    fetchData(api);
 
 });
 
