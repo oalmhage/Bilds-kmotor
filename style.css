@@ -10,7 +10,8 @@ html {
 body {
     background-image: url('image.jpg');
     background-size: cover;
-    background-position: center;
+    background-attachment: fixed; 
+
 }
  
 header {
@@ -21,7 +22,7 @@ header {
 }
  
 h1 {
-    color: #000000a2;
+    color: #000000b6;
     text-shadow: 4px 2px 6px #ffffff78;
     text-align: center;
 }
@@ -32,7 +33,6 @@ h1 {
     grid-template-columns: 4fr 1fr 1fr;
     max-width: 80%;
     margin: auto;
-    outline: none;  
 }
  
 label {
@@ -73,20 +73,17 @@ button:hover {
  
 #imageContainer {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     display: grid;
     gap: 10px;
     margin-top: 50px;
     grid-template-columns: repeat(4, 1fr);
+
 }
  
 img {
-    object-fit: cover;
     width: 15rem;
     height: 18rem;
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.577);
     transition: transform 0.40s ease-in-out;
 }
@@ -96,7 +93,6 @@ img:hover {
  
 .image-details {
     background-color: rgba(26, 26, 26, 0.279);
-    display: block;
     font-size: 15px;
     font-weight: bold;
     padding: 10px;
@@ -116,7 +112,6 @@ img:hover {
 #pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 20px;
     gap: 10px;
     margin-bottom: 20px;
@@ -128,8 +123,6 @@ img:hover {
     padding: 10px;
     background-color: rgba(70, 61, 37, 0.562);
     color: #fff;
-    border: none;
-    border:1px solid #0000001b;
     border-radius: 2px;
     font-family: 'Cinzel', serif;
     transition: background-color 0.3s,transform 0.40s ease-in-out; ;
@@ -143,18 +136,25 @@ img:hover {
  
 .footer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    position: bottom;
-    bottom: 0;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     gap: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.footer-p1{
+    text-align: center;
+}
+.footer-p2{
+   grid-column: 2;
+   text-align: center;
 }
  
 .bottom-line-left,
 .bottom-line-right {
     height: 1px; 
-    background-color: white; 
+    background-color: white;
+     
 }
  
 .bottom-line-left{
@@ -164,16 +164,7 @@ img:hover {
 .bottom-line-right{
     margin-right: 20px;
    
-}
- 
-.footer-p1{
-    text-align: center;
-}
-.footer-p2{
-   grid-column: 2;
-   text-align: center;
-}
- 
+} 
  
 @media (max-width: 1300px) {
     #imageContainer {
@@ -194,7 +185,7 @@ img {
     width: 100%;
 }
  
-@media (max-width: 600px) {
+@media (max-width: 580px) {
     #imageContainer {
         grid-template-columns: 1fr;
     }

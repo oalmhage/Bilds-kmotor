@@ -21,22 +21,6 @@ form.addEventListener('submit', async (event) => {
 
 });
 
-prevButton.addEventListener('click', function () {
-    if (currentPage > 1) {
-        currentPage--;
-
-        fetchData();
-
-    }
-});
-
-nextButton.addEventListener('click', function () {
-    currentPage++;
-
-    fetchData();
-
-});
-
 async function fetchData() {
 
     let api = `https://pixabay.com/api/?key=${apiKey}&` +
@@ -84,6 +68,20 @@ function displayImages(data) {
         
         container.append(imageContainer);
 
+    });
+
+    prevButton.addEventListener('click', function () {
+        if (currentPage > 1) {
+            currentPage--;
+    
+            fetchData();
+        }
+    });
+    
+    nextButton.addEventListener('click', function () {
+        currentPage++;
+    
+        fetchData();
     });
 
     if (data.hits.length > imagesPerPage || currentPage > 1) {
