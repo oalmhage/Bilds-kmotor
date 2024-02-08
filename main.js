@@ -4,6 +4,7 @@ let colorSelect = document.querySelector('#colorSelect');
 let form = document.querySelector("#searchForm");
 let prevButton = document.querySelector('#prevButton');
 let nextButton = document.querySelector('#nextButton');
+let container = document.querySelector('#imageContainer')
 let currentPage = 1;
 let imagesPerPage = 12; //Godkänt av Jakob
 let previousSearchTerm = "";
@@ -20,7 +21,7 @@ form.addEventListener('submit', async (event) => {
 
 });
 
-document.getElementById('prevButton').addEventListener('click', function () {
+prevButton.addEventListener('click', function () {
     if (currentPage > 1) {
         currentPage--;
 
@@ -29,7 +30,7 @@ document.getElementById('prevButton').addEventListener('click', function () {
     }
 });
 
-document.getElementById('nextButton').addEventListener('click', function () {
+nextButton.addEventListener('click', function () {
     currentPage++;
 
     fetchData();
@@ -53,7 +54,6 @@ async function fetchData() {
 }
 
 function displayImages(data) {
-    let container = document.getElementById('imageContainer');
 
     container.replaceChildren();
 
@@ -75,9 +75,13 @@ function displayImages(data) {
         photographerElement.textContent = 'Taken by: ' + image.user;
 
         detailsContainer.append(tagsElement);
+
         detailsContainer.append(photographerElement);
+
         imageContainer.append(imgElement);
+
         imageContainer.append(detailsContainer);
+        
         container.append(imageContainer);
 
     });
