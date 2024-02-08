@@ -6,39 +6,39 @@
 html {
     font-family: 'Cinzel', serif;
 }
-
+ 
 body {
     background-image: url('image.jpg');
     background-size: cover;
     background-position: center;
 }
-
+ 
 header {
     display: grid;
     padding: 20px;
     grid-template-columns: 1fr;
     font-size: 32px;
 }
-
+ 
 h1 {
     color: #fffcba;
-    text-shadow: 4px 2px 6px #16130ddf; 
+    text-shadow: 4px 2px 6px #16130ddf;
     text-align: center;
 }
-
+ 
 #searchForm {
     display: grid;
     gap: 10px;
     grid-template-columns: 4fr 1fr 1fr;
     max-width: 80%;
     margin: auto;
-    outline: none;   
+    outline: none;  
 }
-
+ 
 label {
     display: none;
 }
-
+ 
 #searchInput,
 #colorSelect {
     padding: 10px;
@@ -48,11 +48,11 @@ label {
     font-family: 'Cinzel', serif;
     font-weight: bold;  
 }
-
+ 
 #colorSelect{
     cursor: pointer;
 }
-
+ 
 button {
     padding: 10px;
     background-color: rgba(70, 61, 37, 0.562);
@@ -65,12 +65,12 @@ button {
     transition: background-color 0.3s,
     transform 0.40s ease-in-out; ;
 }
-
+ 
 button:hover {
     background-color: hsla(44, 31%, 21%, 0.3);
     transform: scale(1.03);
 }
-
+ 
 #imageContainer {
     width: 90%;
     margin-left: auto;
@@ -80,20 +80,20 @@ button:hover {
     margin-top: 50px;
     grid-template-columns: repeat(4, 1fr);
 }
-
+ 
 img {
     object-fit: cover;
     width: 15rem;
     height: 15rem;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.577);
-    transition: transform 0.40s ease-in-out; 
+    transition: transform 0.40s ease-in-out;
 }
 img:hover {
     transform: scale(1.03);
 }
-
+ 
 .image-details {
     background-color: rgba(26, 26, 26, 0.279);
     display: block;
@@ -101,19 +101,18 @@ img:hover {
     font-weight: bold;
     padding: 10px;
     text-align: center;
-    transition: 
-    transform 0.4s ease-in-out, 
-    box-shadow 0.4s ease-in-out, 
-    background-color 0.8s ease,
-    font-size 0.3s ease; 
+    transition:
+    box-shadow 0.4s ease-in-out,
+    background-color 0.4s ease,
+    font-size 0.3s ease;
 }
-
-.image-details:hover{   
+ 
+.image-details:hover{  
     box-shadow: 0 0 2px rgba(55, 55, 55, 0.259);
     background-color: rgba(140, 140, 140, 0.049);
     font-size: 15.5px;
 }
-
+ 
 #pagination {
     display: flex;
     justify-content: center;
@@ -122,7 +121,7 @@ img:hover {
     gap: 10px;
     margin-bottom: 20px;
 }
-
+ 
 #nextButton,
 #prevButton {
     display: none;
@@ -135,40 +134,38 @@ img:hover {
     font-family: 'Cinzel', serif;
     transition: background-color 0.3s,transform 0.40s ease-in-out; ;
 }
-
+ 
 #nextButton:hover,
 #prevButton:hover {
     background-color: hsla(44, 31%, 21%, 0.3);
     transform: scale(1.03);
 }
-
+ 
 .footer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Delar upp i tre lika kolumner */
+    grid-template-columns: 1fr 1fr 1fr;
     position: bottom;
-    bottom: 0; 
+    bottom: 0;
     width: 100%;
     gap: 5px;
     padding-bottom: 10px;
-    
-     /* transform: translateX(-50%);  */
 }
-
+ 
 .bottom-line-left,
 .bottom-line-right {
-    height: 1px; /* Justera höjden på linjerna enligt ditt behov */
-    background-color: white; /* Färg på linjerna */
+    height: 1px; 
+    background-color: white; 
 }
-
+ 
 .bottom-line-left{
     margin-left: 20px;
 }
-
+ 
 .bottom-line-right{
     margin-right: 20px;
-    
+   
 }
-
+ 
 .footer-p1{
     text-align: center;
 }
@@ -176,32 +173,32 @@ img:hover {
    grid-column: 2;
    text-align: center;
 }
-
-
+ 
+ 
 @media (max-width: 1300px) {
     #imageContainer {
         max-width: 100%;
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
+ 
 @media (max-width: 1046px) {
-
+ 
     #imageContainer {
         grid-template-columns: repeat(2, 1fr);
-
+ 
     }
 }
-
+ 
 img {
     width: 100%;
 }
-
+ 
 @media (max-width: 600px) {
     #imageContainer {
         grid-template-columns: 1fr;
     }
-
+ 
     #searchForm{
         grid-template-columns: 1fr;
     }
