@@ -146,37 +146,31 @@ img:hover {
     transform: scale(1.03);
 }
 
-.footer-text {
+.footer {
     display: grid;
-    grid-template-columns: 1fr;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
+    grid-template-columns: 1fr 1fr 1fr; /* Delar upp i tre lika kolumner */
+    align-items: center; /* Centrera innehållet vertikalt */
+    position: bottom;
+    bottom: 0; 
     padding: 10px;
     width: 100%;
-    transform: translateX(-50%);
-    text-align: center;
-    border-top: #ffffff;
-    color: #ffffff; /* Textfärg */
-    font-size: 20px; /* Textstorlek */
-    font-family: dancing script; /* Typsnitt */
+    gap: 5px;
+    
+     /* transform: translateX(-50%);  */
 }
 
 .bottom-line-left,
 .bottom-line-right {
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: #ffffff;
+    height: 1px; /* Justera höjden på linjerna enligt ditt behov */
+    background-color: white; /* Färg på linjerna */
 }
-.bottom-line-left {
-    margin-left: 10%; /* Justera avståndet mellan linjen och vänsterkanten efter behov */
+
+.footer-p1{
+    text-align: center;
 }
- 
- .bottom-line-right {
-     margin-right: 10%; /* Justera avståndet mellan linjen och högerkanten efter behov */
+.footer-p2{
+   grid-column: 2;
+   text-align: center;
 }
 
 
@@ -203,7 +197,7 @@ img {
     #imageContainer {
         grid-template-columns: 1fr;
     }
-    .search-container{
+    #searchForm{
         grid-template-columns: 1fr;
     }
 }
