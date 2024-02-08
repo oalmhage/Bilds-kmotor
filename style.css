@@ -21,7 +21,7 @@ header {
 }
  
 h1 {
-    color: #fffcba;
+    color: #f2cdad86;
     text-shadow: 4px 2px 6px #16130ddf;
     text-align: center;
 }
@@ -55,7 +55,7 @@ label {
  
 button {
     padding: 10px;
-    background-color: rgba(70, 61, 37, 0.562);
+    background-color: rgba(70, 61, 37, 0.415);
     color: #fff;
     cursor: pointer;
     border:1px solid #0000001b;

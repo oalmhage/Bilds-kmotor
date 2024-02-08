@@ -1,60 +1,30 @@
 let apiKey = '42149832-f9141c5344ccf49924bc7a124';
+let searchInput = document.querySelector('#searchInput');
+let colorSelect = document.querySelector('#colorSelect');
+let form = document.querySelector("#searchForm");
+let prevButton = document.querySelector('#prevButton');
+let nextButton = document.querySelector('#nextButton');
 let currentPage = 1;
 let imagesPerPage = 12; //Godkänt av Jakob
-let searchTerm = "";
-let colorFilter = "";
 let previousSearchTerm = "";
 let previousColorFilter = "";
 
-document.getElementById('searchButton').addEventListener('click', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
     currentPage = 1;
-    searchImages();
+
+    previousSearchTerm = searchInput.value;
+    previousColorFilter = colorSelect.value;
+
+    await fetchData();
+
 });
-
-function searchImages() {
-    let searchTerm = document.getElementById('searchInput').value;
-    let colorFilter = document.getElementById('colorSelect').value;
-
-    let api = `https://pixabay.com/api/?key=${apiKey}&` +
-        `q=${encodeURIComponent(searchTerm)}&` +
-        `per_page=${imagesPerPage}&` +
-        `page=${currentPage}`;
-
-    if (colorFilter) {
-        api += `&colors=${colorFilter}`;
-    }
-
-    // Sparar föregående sökvärden
-    if (searchTerm !== "") {
-        previousSearchTerm = searchTerm;
-    }
-    if (colorFilter !== "") {
-        previousColorFilter = colorFilter;
-    }
-
-    fetchData(api);
-
-}
-
-async function fetchData(api) {
-    let response = await fetch(api);
-    let data = await response.json();
-    displayImages(data);
-}
 
 document.getElementById('prevButton').addEventListener('click', function () {
     if (currentPage > 1) {
         currentPage--;
 
-        // Använd föregående sökterm och färg när du klickar på "prev" eller "next"
-        let api = `https://pixabay.com/api/?key=${apiKey}&` +
-            `q=${encodeURIComponent(previousSearchTerm)}&` +
-            `per_page=${imagesPerPage}&` +
-            `page=${currentPage}&` +
-            `colors=${previousColorFilter}`;
-
-        fetchData(api);
+        fetchData();
 
     }
 });
@@ -62,15 +32,25 @@ document.getElementById('prevButton').addEventListener('click', function () {
 document.getElementById('nextButton').addEventListener('click', function () {
     currentPage++;
 
+    fetchData();
+
+});
+
+async function fetchData() {
+
     let api = `https://pixabay.com/api/?key=${apiKey}&` +
         `q=${encodeURIComponent(previousSearchTerm)}&` +
         `per_page=${imagesPerPage}&` +
-        `page=${currentPage}&` +
-        `colors=${previousColorFilter}`;
+        `page=${currentPage}`;
 
-    fetchData(api);
+    if (previousColorFilter) {
+        api += `&colors=${previousColorFilter}`;
+    }
 
-});
+    let response = await fetch(api);
+    let data = await response.json();
+    displayImages(data);
+}
 
 function displayImages(data) {
     let container = document.getElementById('imageContainer');
@@ -102,20 +82,18 @@ function displayImages(data) {
 
     });
 
-    let prevButton = document.getElementById('prevButton');
-    let nextButton = document.getElementById('nextButton');
-
     if (data.hits.length > imagesPerPage || currentPage > 1) {
         prevButton.style.display = 'inline-block';
     } else {
         prevButton.style.display = 'none';
     }
-
+    
     let totalPages = Math.ceil(data.totalHits / imagesPerPage);
-
+    
     if (totalPages > currentPage) {
         nextButton.style.display = 'inline-block';
     } else {
         nextButton.style.display = 'none';
     }
+    
 }

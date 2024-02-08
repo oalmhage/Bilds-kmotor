@@ -6,32 +6,32 @@
     <title>Pixabay Image Search</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
- 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Dancing+Script&display=swap" rel="stylesheet">
- 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@400;600&display=swap"
         rel="stylesheet">
- 
+
     <meta name="description" content="A website made for searching images with the Pixabay API">
     <meta name="keywords" content="html, css, JavaScript, API, assignment, Pixabay, image search">
     <meta name="author" content="Oskar Almhage, Veronica Steen">
 </head>
- 
+
 <body>
     <main>
         <header>
             <h1>Pixabay Image Search</h1>
         </header>
- 
+
         <form id="searchForm" onsubmit="">
             <label for="searchInput"></label>
             <input type="text" id="searchInput" placeholder="Give it a search..">
- 
+
             <label for="colorSelect"></label>
             <select id="colorSelect">
                 <option value="">Any color</option>
@@ -44,17 +44,17 @@
                 <option value="pink">Pink</option>
                 <option value="brown">Brown</option>
             </select>
- 
-            <button id="searchButton" type="submit">Search</button>
+
+            <button id="submit" type="submit">Search</button>
         </form>
-           
+            
         <div id="imageContainer"></div>
         <div id="pagination">
             <button id="prevButton">Previous</button>
             <button id="nextButton">Next</button>
         </div>
-       
-       
+        
+        
     </main>
     <div class="footer">
         <div class="bottom-line-left"></div>
@@ -63,8 +63,8 @@
         <p class = "footer-p2">Oskar Almhage </p>
         <p class = "footer-p2">&</p>
         <p class = "footer-p2">Veronica Steen</p>
- 
+
     </div>
 </body>
- 
+
 </html>
