@@ -6,11 +6,8 @@ let colorFilter = "";
 let previousSearchTerm = "";
 let previousColorFilter = "";
 
-document.getElementById('searchButton').addEventListener('click', function () {
-
-    // latestSearch = searchTerm.value;
-    // latestColor = colorFilter.value;
-
+document.getElementById('searchButton').addEventListener('click', (event) => {
+    event.preventDefault();
     currentPage = 1;
     searchImages();
 });

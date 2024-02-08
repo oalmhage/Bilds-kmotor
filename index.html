@@ -28,9 +28,15 @@
         <header>
             <h1>Pixabay Image Search</h1>
         </header>
-        <div class="search-container">
 
-            <input type="text" id="searchInput" placeholder="Search for photos">
+        <!-- Använd <form> för sökformuläret -->
+        <form id="searchForm" onsubmit="">
+            <!-- Använd <label> för söktext -->
+            <label for="searchInput"></label>
+            <input type="text" id="searchInput" placeholder="Give it a search..">
+
+            <!-- Använd <label> för färgtext -->
+            <label for="colorSelect"></label>
             <select id="colorSelect">
                 <option value="">Any color</option>
                 <option value="grayscale">Grayscale</option>
@@ -41,18 +47,25 @@
                 <option value="orange">Orange</option>
                 <option value="pink">Pink</option>
                 <option value="brown">Brown</option>
-
             </select>
-            <button id="searchButton">Search</button>
 
-        </div>
-
+            <!-- Använd <button> för sökknappen -->
+            <button id="searchButton" type="submit">Search</button>
+        </form>
+            
         <div id="imageContainer"></div>
         <div id="pagination">
             <button id="prevButton">Previous</button>
             <button id="nextButton">Next</button>
         </div>
+        
+        
     </main>
+    <div class="footer-text">
+        <div class="bottom-line-left"></div>
+        <p>Made by Oskar Almhage & Veronica Steen</p>
+        <div class="bottom-line-right"></div>
+    </div>
 </body>
 
 </html>

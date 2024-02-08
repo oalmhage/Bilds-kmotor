@@ -10,7 +10,6 @@ html {
 body {
     background-image: url('image.jpg');
     background-size: cover;
-    /* Sätt bakgrundsbilden för att täcka hela fönstret */
     background-position: center;
 }
 
@@ -23,18 +22,21 @@ header {
 
 h1 {
     color: #fffcba;
-    text-shadow: 1px 2px 4px #3f3726;
-    font-family: 'Dancing Script', cursive;    
+    text-shadow: 4px 2px 6px #16130ddf; 
     text-align: center;
 }
 
-.search-container {
+#searchForm {
     display: grid;
     gap: 10px;
     grid-template-columns: 4fr 1fr 1fr;
     max-width: 80%;
     margin: auto;
     outline: none;   
+}
+
+label {
+    display: none;
 }
 
 #searchInput,
@@ -44,26 +46,29 @@ h1 {
     outline: none;
     border: none;
     font-family: 'Cinzel', serif;
-    font-weight: bold;
+    font-weight: bold;  
+}
+
+#colorSelect{
+    cursor: pointer;
 }
 
 button {
     padding: 10px;
     background-color: rgba(70, 61, 37, 0.562);
     color: #fff;
-    border: none;
     cursor: pointer;
     border:1px solid #0000001b;
     border-radius: 2px;
     font-family: 'Cinzel', serif;
     font-weight: bold;
-    transition: background-color 0.3s,transform 0.40s ease-in-out; ;
+    transition: background-color 0.3s,
+    transform 0.40s ease-in-out; ;
 }
 
 button:hover {
     background-color: hsla(44, 31%, 21%, 0.3);
     transform: scale(1.03);
-
 }
 
 #imageContainer {
@@ -90,13 +95,17 @@ img:hover {
 }
 
 .image-details {
-    background-color: rgba(255, 255, 255, 0.114);
+    background-color: rgba(26, 26, 26, 0.279);
     display: block;
     font-size: 15px;
     font-weight: bold;
     padding: 10px;
     text-align: center;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
+    transition: 
+    transform 0.4s ease-in-out, 
+    box-shadow 0.4s ease-in-out, 
+    background-color 0.8s ease,
+    font-size 0.3s ease; 
 }
 
 #image-item{
@@ -104,7 +113,9 @@ img:hover {
     margin-right: auto; 
 }
 .image-details:hover{   
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.353);
+    box-shadow: 0 0 2px rgba(55, 55, 55, 0.259);
+    background-color: rgba(140, 140, 140, 0.049);
+    font-size: 15.5px;
 }
 
 #pagination {
@@ -134,6 +145,40 @@ img:hover {
     background-color: hsla(44, 31%, 21%, 0.3);
     transform: scale(1.03);
 }
+
+.footer-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    padding: 10px;
+    width: 100%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-top: #ffffff;
+    color: #ffffff; /* Textfärg */
+    font-size: 20px; /* Textstorlek */
+    font-family: dancing script; /* Typsnitt */
+}
+
+.bottom-line-left,
+.bottom-line-right {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ffffff;
+}
+.bottom-line-left {
+    margin-left: 10%; /* Justera avståndet mellan linjen och vänsterkanten efter behov */
+}
+ 
+ .bottom-line-right {
+     margin-right: 10%; /* Justera avståndet mellan linjen och högerkanten efter behov */
+}
+
 
 @media (max-width: 1300px) {
     #imageContainer {
